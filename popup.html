@@ -1,25 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 10px;
-      width: 220px;
-    }
-    button {
-      width: 100%;
-      margin-top: 8px;
-      padding: 8px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <h3>Translate Export</h3>
-  <button id="scroll">Auto-scroll history</button>
-  <button id="export">Export JSON</button>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        margin: 0;
+        padding: 14px;
+        width: 260px;
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+        color: #1f2937;
+      }
 
-  <script src="popup.js"></script>
-</body>
+      .container {
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      h3 {
+        margin: 0 0 6px 0;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .subtitle {
+        font-size: 12px;
+        color: #6b7280;
+        text-align: center;
+        margin-bottom: 14px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      button:active {
+        transform: scale(0.97);
+      }
+
+      #scroll {
+        background: linear-gradient(135deg, #6366f1, #4f46e5);
+        color: white;
+      }
+      #stop {
+        background: linear-gradient(135deg, #ef4444, #b91c1c);
+        color: white;
+      }
+      #export {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white;
+      }
+
+      #scroll:hover,
+      #stop:hover,
+      #export:hover {
+        opacity: 0.9;
+      }
+
+      .footer {
+        margin-top: 12px;
+        font-size: 11px;
+        color: #9ca3af;
+        text-align: center;
+      }
+      .icon {
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h3>Translate Export</h3>
+      <div class="subtitle">Export Google Translate history</div>
+
+      <button id="scroll">Auto-scroll history</button>
+      <button id="stop">Stop Scrolling</button>
+      <button id="export">Export JSON</button>
+
+      <div class="footer">DOM-based • Best-effort</div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
 </html>
