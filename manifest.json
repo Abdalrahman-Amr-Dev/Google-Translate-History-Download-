@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Translate History Exporter",
+  "description": "Export Google Translate history to JSON",
+  "version": "1.0",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": [
+    "https://translate.google.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
