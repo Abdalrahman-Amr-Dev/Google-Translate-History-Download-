@@ -30,34 +30,44 @@ document.getElementById("export").addEventListener("click", async () => {
 // ----------- Functions injected into page ------------
 
 function startAutoScroll() {
-  if (window.scrollInterval) {
-    console.log("Already scrolling");
+  if (window.scrollInterval) return;
+
+  const container =
+    document.querySelector('[role="main"]') ||
+    document.querySelector('.ita-history-scrollable') ||
+    document.querySelector('div[style*="overflow"]');
+
+  if (!container) {
+    console.log("Scrollable container not found");
     return;
   }
 
-  let lastHeight = 0;
+  let lastScrollHeight = 0;
   let stableCount = 0;
   const MAX_STABLE = 4;
 
   window.scrollInterval = setInterval(() => {
-    window.scrollTo(0, document.body.scrollHeight);
+    container.scrollTop = container.scrollHeight;
 
-    const currentHeight = document.body.scrollHeight;
-    if (currentHeight === lastHeight) stableCount++;
-    else {
+    const currentHeight = container.scrollHeight;
+
+    if (currentHeight === lastScrollHeight) {
+      stableCount++;
+    } else {
       stableCount = 0;
-      lastHeight = currentHeight;
+      lastScrollHeight = currentHeight;
     }
 
     if (stableCount >= MAX_STABLE) {
       clearInterval(window.scrollInterval);
       window.scrollInterval = null;
-      console.log("Scrolling finished (no more history)");
+      console.log("Scrolling finished");
     }
-  }, 1500);
+  }, 1200);
 
   console.log("Auto-scroll started");
 }
+
 
 function stopAutoScroll() {
   if (window.scrollInterval) {
