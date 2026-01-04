@@ -65,10 +65,15 @@
         background: linear-gradient(135deg, #10b981, #059669);
         color: white;
       }
+      #exportHTML {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        color: white;
+      }
 
       #scroll:hover,
       #stop:hover,
-      #export:hover {
+      #export:hover,
+      #exportHTML:hover {
         opacity: 0.9;
       }
 
@@ -87,13 +92,15 @@
   <body>
     <div class="container">
       <h3>Translate Export</h3>
-      <div class="subtitle">Export Google Translate history</div>
+      <div class="subtitle">Google Translate History Crawler • v1.1</div>
 
       <button id="scroll">Auto-scroll history</button>
       <button id="stop">Stop Scrolling</button>
       <button id="export">Export JSON</button>
+      <button id="exportHTML">Export HTML</button>
 
-      <div class="footer">DOM-based • Best-effort</div>
+      <div class="footer">DOM-based</div>
+      <div class="footer">By Abdalrahman_Amr</div>
     </div>
 
     <script src="popup.js"></script>
